@@ -13,7 +13,8 @@ return new class extends Migration
 {
     Schema::create('ofertas', function (Blueprint $table) {
         $table->id();
-        $table->foreignId('empresa_id')->constrained('empresas'); 
+        $table->foreignId('empresa_id')->constrained('empresas');
+        $table->foreignId('rubro_id')->constrained('rubros'); 
         $table->string('titulo'); 
         $table->decimal('precio_regular', 8, 2); 
         $table->decimal('precio_oferta', 8, 2); 
@@ -31,6 +32,7 @@ return new class extends Migration
         ])->default('aprobada'); 
         $table->text('justificacion_rechazo')->nullable();
         $table->timestamps();
+         
     });
 }
 
